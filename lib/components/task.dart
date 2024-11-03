@@ -16,6 +16,10 @@ class Task extends StatefulWidget {
 class _TaskState extends State<Task> {
   int level = 0;
 
+  bool isNetworkImage() {
+    return widget.image.contains('http');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -35,7 +39,15 @@ class _TaskState extends State<Task> {
                         width: 72,
                         height: 100,
                         color: Colors.grey,
-                        child: Image.asset(widget.image, fit: BoxFit.cover),
+                        child: isNetworkImage()
+                            ? Image.network(
+                                widget.image,
+                                fit: BoxFit.cover,
+                              )
+                            : Image.asset(
+                                widget.image,
+                                fit: BoxFit.cover,
+                              ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8),
