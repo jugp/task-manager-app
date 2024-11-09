@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/data/task_dao.dart';
 import 'difficulty.dart';
 import 'level.dart';
 
@@ -77,6 +78,35 @@ class _TaskState extends State<Task> {
                                   level++;
                                 }
                               });
+                            },
+                            onLongPress: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (_) => AlertDialog(
+                                    title: Text("Deletar"),
+                                    content: Text("Tem certeza que deseja deletar?"),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: const Text('Sim'),
+                                        onPressed: () {
+                                          TaskDao().delete(widget.name);
+                                          ScaffoldMessenger.of(context).showSnackBar(
+                                            const SnackBar(content: Text('Tarefa deletada!')),
+                                          );
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),
+                                      TextButton(
+                                        child: const Text('Não'),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),
+                                    ],
+                                  ));
+
+
+
                             },
                             child: const Icon(Icons.arrow_drop_up)),
                       )

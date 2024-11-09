@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/components/text_input_field.dart';
+import 'package:task_manager/data/task_dao.dart';
 import 'package:task_manager/data/task_inherited.dart';
 
 import '../components/number_input_field.dart';
+import '../components/task.dart';
 import '../components/url_input_field.dart';
 
 class FormScreen extends StatefulWidget {
@@ -61,12 +63,15 @@ class _FormScreenState extends State<FormScreen> {
                             const SnackBar(content: Text('Processando Dados')),
                           );
 
-                          TaskInherited.of(context).newTask(_name, _imageUrl!, _difficulty);
+                          //TaskInherited.of(context).newTask(_name, _imageUrl!, _difficulty);
+
+                          TaskDao().save(Task(_name, _imageUrl!, _difficulty));
 
                           Navigator.pop(context);
                         }
                       },
-                      child: const Text('Enviar'),
+                      child: const Text(
+                          'Enviar'),
                     ),
                   ),
                 ],
