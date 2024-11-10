@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:task_manager/components/text_input_field.dart';
+import 'package:task_manager/screens/create_task/widgets/number_input_field.dart';
+import 'package:task_manager/screens/create_task/widgets/text_input_field.dart';
 import 'package:task_manager/data/task_dao.dart';
-import 'package:task_manager/data/task_inherited.dart';
+import '../../components/task.dart';
+import 'widgets/url_input_field.dart';
 
-import '../components/number_input_field.dart';
-import '../components/task.dart';
-import '../components/url_input_field.dart';
-
-class FormScreen extends StatefulWidget {
-  const FormScreen({super.key});
+class CreateTaskScreen extends StatefulWidget {
+  const CreateTaskScreen({super.key});
 
   @override
-  State<FormScreen> createState() => _FormScreenState();
+  State<CreateTaskScreen> createState() => _CreateTaskScreenState();
 }
 
-class _FormScreenState extends State<FormScreen> {
+class _CreateTaskScreenState extends State<CreateTaskScreen> {
   final _formKey = GlobalKey<FormState>();
   String _name = '';
   int _difficulty = 1;

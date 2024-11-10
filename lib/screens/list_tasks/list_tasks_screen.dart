@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/data/task_dao.dart';
-import 'package:task_manager/data/task_inherited.dart';
-import 'package:task_manager/screens/form_screen.dart';
+import 'package:task_manager/screens/create_task/create_task_screen.dart';
+import '../../components/task.dart';
 
-import '../components/task.dart';
-
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class ListTasksScreen extends StatefulWidget {
+  const ListTasksScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<ListTasksScreen> createState() => _ListTasksScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _ListTasksScreenState extends State<ListTasksScreen> {
   late Future<List<Task>> _futureData;
 
   Future<List<Task>> fetchData() async {
@@ -22,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void _createItem() async {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const FormScreen()),
+      MaterialPageRoute(builder: (context) => const CreateTaskScreen()),
     ).then((_){
       setState(() {
         _futureData = fetchData();

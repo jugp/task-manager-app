@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/data/task_dao.dart';
-import 'difficulty.dart';
+import './difficulty.dart';
 import 'level.dart';
 
 class Task extends StatefulWidget {

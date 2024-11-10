@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_manager/screens/home_screen.dart';
-
+import 'package:task_manager/screens/list_tasks/list_tasks_screen.dart';
 import 'data/task_inherited.dart';
 
 void main() {
@@ -19,6 +18,6 @@ class MyApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
-            home: const HomeScreen()));
+            home: const ListTasksScreen()));
   }
 }

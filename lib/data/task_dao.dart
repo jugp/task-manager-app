@@ -1,6 +1,5 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:task_manager/data/database.dart';
-
 import '../components/task.dart';
 
 class TaskDao {
